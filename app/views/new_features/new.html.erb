@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= simple_form_for @new_feature do |form| %>
+      <%#= form_with model: @new_feature, local: true do |form| %>
+        <%= form.input :title %>
+        <%= form.input :text %>
+        <%= form.file_field :image %>
+        <%= form.submit "Create News" %>
+      <% end %>
+    </div>
+  </div>
+</div>
