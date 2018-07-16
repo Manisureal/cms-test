@@ -5,7 +5,7 @@
       <%#= form_with model: @new_feature, local: true do |form| %>
         <%= form.input :title %>
         <%= form.input :text %>
-        <%= form.file_field :image %>
+        <%= form.file_field :images, multiple: true %>
         <%= form.submit "Create News" %>
       <% end %>
     </div>

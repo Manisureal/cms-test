@@ -9,8 +9,11 @@ class NewFeaturesController < ApplicationController
 
   def create
     @new_feature = NewFeature.create!(new_feature_params)
-    @new_feature.image.attach(params[:new_feature][:image])
-    # redirect_to @new_feature
+    @new_feature.images.attach(params[:new_feature][:images])
+    if @new_feature.save
+      redirect_to new_features_path
+      flash[:notice] = "News Blog was successfully created!"
+    end
   end
 
   def show

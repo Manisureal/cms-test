@@ -1,1 +1,3 @@
-<%= image_tag @new_feature.image %>
+<% @new_feature.images.each do |nf| %>
+<%= image_tag nf %>
+<% end %>
