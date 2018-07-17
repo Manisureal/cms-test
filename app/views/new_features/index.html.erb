@@ -11,34 +11,36 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <% @news.each do |nf|  %>
-        <div class="news-item">
-          <div class="title">
-            <div class="news-date">
-              <p class="created-day"><%= nf.created_at.strftime("%e") %></p>
-              <p class="created-month"><%= nf.created_at.strftime("%b") %></p>
+      <% @news.each do |nf| %>
+        <%= link_to new_feature_path(nf) do %>
+          <div class="news-item">
+            <div class="title">
+              <div class="news-date">
+                <p class="created-day"><%= nf.created_at.strftime("%e") %></p>
+                <p class="created-month"><%= nf.created_at.strftime("%b") %></p>
+              </div>
+                <h2 style="color:#445d77"><%= nf.title %></h2>
             </div>
-              <h2 style="color:#445d77"><%= nf.title %></h2>
-          </div>
-          <hr style="border-color:#9d9d9d6b;margin:8px 0 8px 0;">
-          <p class="news-info">Details</p>
-          <p style="color:#778899"><%= nf.text %></p>
-          <div class="row">
-            <% counter = 0 %>
-            <% if nf.images.attachments != nil %>
-              <% nf.images.each do |i| %>
-              <% counter += 1 %>
-               <div class="-col-xs-12 col-sm-4">
-                <div class="card-<%= counter %>">
-                  <div class="card-image">
-                    <%= image_tag i %>
+            <hr style="border-color:#9d9d9d6b;margin:8px 0 8px 0;">
+            <p class="news-info">Details</p>
+            <p style="color:#778899"><%= nf.text %></p>
+            <div class="row">
+              <% counter = 0 %>
+              <% if nf.images.attachments != nil %>
+                <% nf.images.each do |i| %>
+                <% counter += 1 %>
+                 <div class="-col-xs-12 col-sm-4 pad-bot">
+                  <div class="card-<%= counter %>">
+                    <div class="card-image">
+                      <%= image_tag i %>
+                    </div>
                   </div>
-                </div>
-               </div>
+                 </div>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -81,7 +83,7 @@
   .news-item  {
     border-bottom: 1px solid grey;
     margin-top:25px;
-    margin-bottom:30px;
+    margin-bottom:50px;
   }
 
   .title {
@@ -129,6 +131,10 @@
     text-transform: uppercase;
     font-weight: bold;
     opacity:0.5;
+  }
+
+  .pad-bot {
+    padding-bottom: 10px;
   }
 
   .card-1,.card-2,.card-3,.card-4,.card-5,.card-6,.card-7,.card-8,.card-9 {
