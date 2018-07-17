@@ -7,7 +7,8 @@
               <p class="created-day"><%= @new_feature.created_at.strftime("%e") %></p>
               <p class="created-month"><%= @new_feature.created_at.strftime("%b") %></p>
             </div>
-              <h2 style="color:#445d77"><%= @new_feature.title %></h2>
+              <h2 id="nf-title"><%= @new_feature.title %></h2>
+              <p><%= link_to "Edit", edit_new_feature_path(@new_feature) %></p>
           </div>
           <hr style="border-color:#9d9d9d6b;margin:8px 0 8px 0;">
           <p class="news-info">Details</p>
@@ -46,6 +47,14 @@
 
   .title {
     display: flex;
+    justify-content: space-between;
+  }
+
+  #nf-title {
+    /*position: absolute;
+    left: 100px;*/
+    flex-grow: 2;
+    color:#445d77;
   }
 
   .news-date {
