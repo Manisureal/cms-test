@@ -20,6 +20,17 @@ class NewFeaturesController < ApplicationController
     @new_feature = NewFeature.find(params[:id])
   end
 
+  def edit
+    @new_feature = NewFeature.find(params[:id])
+  end
+
+  def update
+    @new_feature = NewFeature.find(params[:id])
+    if @new_feature.update(new_feature_params)
+      flash[:notice] = "News Blog successfully updated!"
+    end
+  end
+
   private
 
   def new_feature_params
